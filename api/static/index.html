@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decade Sentinel | 2016-2026 Evolution</title>
+    
+    <meta name="description" content="Evolución tecnológica 2016-2026. Alta performance para hardware antiguo.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Decade Sentinel: 2016-2026">
+    <meta property="og:description" content="La evolución de la tecnología año tras año.">
+    <meta property="og:image" content="/img/cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+   <main class="timeline-container">
+
+    <div class="telemetry-bar">
+        <div id="loading-progress" class="htmx-indicator">
+            <div class="scanner-line"></div>
+            <span>ESCANEANDO CRONOLOGÍA...</span>
+        </div>
+    </div>
+
+    <div id="detail-display">
+        </div>
+  
+
+       <header class="hero">
+           <h1 class="glitch" data-text="DECADE SHIFT">DECADE SHIFT</h1>
+           <p>Un viaje técnico a través de la arquitectura y la innovación.</p>
+       </header>
+
+       <div class="timeline-grid">
+           <article class="year-card" hx-get="/api/details?year=2016" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2016</span>
+               <h3>La Era del Contenedor</h3>
+               <p>Docker estandariza el envío de software. Se acaba el "en mi máquina funciona".</p>
+               <div class="tech-tag">Docker / K8s</div>
+               <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2017" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2017</span>
+               <h3>El Big Bang de la IA</h3>
+               <p>Aparece el paper "Attention is All You Need". Los Transformers cambian el futuro.</p>
+               <div class="tech-tag">Deep Learning</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2018" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2018</span>
+               <h3>Lógica en el Borde</h3>
+               <p>Serverless y Edge Computing. El código se ejecuta cerca del usuario, no en un sótano lejano.</p>
+               <div class="tech-tag">Serverless</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2019" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2019</span>
+               <h3>Sistemas Distribuidos</h3>
+               <p>Microservicios masivos. El reto ya no es escribir código, es entender cómo se comunican.</p>
+               <div class="tech-tag">Distributed Ops</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card highlight" hx-get="/api/details?year=2020" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2020</span>
+               <h3>Resiliencia Global</h3>
+               <p>La infraestructura mundial se prueba al límite. La nube se vuelve el cimiento de la sociedad.</p>
+               <div class="tech-tag">Cloud Mastery</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2021" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2021</span>
+               <h3>Copilotos de Código</h3>
+               <p>La IA empieza a escribir funciones. El programador pasa de "escritor" a "revisor".</p>
+               <div class="tech-tag">IA Pair Programming</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2022" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2022</span>
+               <h3>Democratización Generativa</h3>
+               <p>ChatGPT y Stable Diffusion. La IA conversacional rompe la barrera técnica.</p>
+               <div class="tech-tag">LLM explosion</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2023" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2023</span>
+               <h3>La Rebelión contra el JS</h3>
+               <p>HTMX revive el Server-Driven UI. Menos complejidad, menos SPAs gigantes, más velocidad real.</p>
+               <div class="tech-tag">HTMX / Simplicity</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2024" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2024</span>
+               <h3>Memoria Vectorial</h3>
+               <p>Bases de datos vectoriales (Embeddings). La IA ahora tiene memoria a largo plazo.</p>
+               <div class="tech-tag">Vector DB</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card" hx-get="/api/details?year=2025" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label">2025</span>
+               <h3>Soberanía y Privacidad</h3>
+               <p>GDPR 2.0 y Edge AI local. Menos nube centralizada, más control personal del dato.</p>
+               <div class="tech-tag">Privacy by Design</div>
+                  <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+
+           <article class="year-card sentinel" hx-get="/api/details?year=2026" hx-target="find .tooltip-content" hx-trigger="mouseenter">
+               <span class="year-label pulse">2026</span>
+               <h3>Sistemas Autónomos</h3>
+               <p>Sistemas auto-curables y Zero-Trust real. El software se adapta al humano, no al revés.</p>
+               <div class="tech-tag">Autonomous Ops</div>
+                 <div class="tooltip-content">
+        <div class="htmx-indicator">Escaneando...</div>
+    </div>
+           </article>
+       </div>
+
+        <footer class="sentinel-footer">
+       <div class="footer-content">
+           <div class="footer-info">
+               <p>&copy; 2026 <strong>Decade Sentinel</strong> | Vigilancia Tecnológica</p>
+               <p class="seo-text">Análisis de la evolución de arquitectura de software y sistemas autónomos.</p>
+           </div>
+           
+           <address class="footer-links">
+               <a href="https://github.com/santiagourdaneta" 
+                  target="_blank" 
+                  rel="noopener noreferrer me" 
+                  title="Visita mi repositorio en GitHub"
+                  class="github-link">
+                   <svg viewBox="0 0 24 24" class="github-icon"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                   santiagourdaneta
+               </a>
+           </address>
+       </div>
+   </footer>
+   </main>
+
+
+
+   <script src="/js/app.js" defer></script>
+
+</body>
+</html>

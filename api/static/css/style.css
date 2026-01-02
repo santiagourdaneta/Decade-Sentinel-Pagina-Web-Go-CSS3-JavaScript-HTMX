@@ -1,0 +1,328 @@
+/* Paleta de Colores 2026 */
+:root {
+  --primary: #00f2ff;
+  --secondary: #7000ff;
+  --dark-bg: #030303;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --text-dim: #a0a0a0;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+padding-bottom: 20px; /* Para asegurar que el contenido no quede pegado al footer */
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  width: 90%;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(10px); /* Vértigo Visual */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--neon);
+}
+
+.featured {
+  border: 1px solid var(--neon);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+}
+
+.timeline-container {
+  padding: 4rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.year-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative; /* Necesario para posicionar el tooltip */
+    overflow: visible;  /* Permitir que el tooltip salga de los bordes */
+}
+
+.year-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Estilo del Tooltip */
+.tooltip-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    bottom: 110%;  /* Aparece arriba de la tarjeta */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    background: rgba(0, 20, 0, 0.95);
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    padding: 15px;
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    pointer-events: none; /* Para que no estorbe al mover el ratón */
+}
+
+/* Mostrar tooltip al hacer hover */
+.year-card:hover .tooltip-content {
+    display: block;
+    animation: tooltipFadeIn 0.3s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes tooltipFadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Ajuste para el indicador de carga dentro del tooltip */
+.tooltip-content .htmx-indicator {
+    color: #00ff41;
+    font-style: italic;
+    text-align: center;
+}
+
+.year-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  background: rgba(112, 0, 255, 0.2);
+  color: #d1b3ff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Efecto para el año 2026 */
+.sentinel {
+  background: linear-gradient(145deg, rgba(0, 242, 255, 0.1), rgba(112, 0, 255, 0.1));
+  border: 1px solid var(--primary);
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+.detail-panel {
+  background: linear-gradient(90deg, var(--card-bg), transparent);
+  border-left: 4px solid var(--primary);
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 0 24px 24px 0;
+  min-height: 100px;
+  animation: slideIn 0.5s ease-out;
+}
+
+.telemetry-bar {
+    height: 20px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+/* HTMX muestra esto automáticamente cuando hay una petición activa */
+.htmx-indicator {
+    display: none;
+    color: #00ff41;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+}
+
+.htmx-request .htmx-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.scanner-line {
+    width: 100px;
+    height: 4px;
+    background: #00ff41;
+    box-shadow: 0 0 10px #00ff41;
+    animation: scan 1s infinite alternate;
+}
+
+/* --- TELEMETRÍA Y HTMX INDICATOR --- */
+
+/* Por defecto oculto */
+.htmx-indicator {
+    display: none;
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+}
+
+/* Se activa cuando HTMX está trabajando */
+.htmx-request.htmx-indicator, 
+.htmx-request .htmx-indicator {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px dashed #00ff41;
+    padding: 15px;
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+    color: #00ff41;
+}
+
+.scanner-line {
+    width: 60px;
+    height: 3px;
+    background: #00ff41;
+    box-shadow: 0 0 12px #00ff41;
+    margin-right: 20px;
+    animation: telemetria 1.2s infinite ease-in-out;
+}
+
+@keyframes telemetria {
+    0% { transform: scaleX(0.2); opacity: 0.3; }
+    50% { transform: scaleX(1.8); opacity: 1; }
+    100% { transform: scaleX(0.2); opacity: 0.3; }
+}
+
+/* --- ANIMACIÓN DE ENTRADA --- */
+.animated-entry {
+    animation: terminalFade 0.5s ease-out forwards;
+    border-left: 3px solid #00ff41;
+    padding-left: 15px;
+    background: rgba(0, 20, 0, 0.4);
+}
+
+@keyframes terminalFade {
+    from { 
+        opacity: 0; 
+        transform: translateY(5px); 
+        filter: blur(2px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+        filter: blur(0);
+    }
+}
+
+/* Estilo para las alertas de error de año */
+.error-alert {
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 15px;
+    background: rgba(255, 0, 0, 0.1);
+    animation: shake 0.3s ease-in-out;
+}
+
+.sentinel-footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+    background: rgba(0, 5, 0, 0.9);
+    border-top: 1px solid #00ff41;
+    color: #00ff41;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.seo-text {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #00ff41;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid transparent;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid #00ff41;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+.github-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-animation {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}

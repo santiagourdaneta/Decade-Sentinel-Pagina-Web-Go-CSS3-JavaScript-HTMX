@@ -1,0 +1,12 @@
+ignoreGeneratedHeader = false
+severity = "warning"
+
+[rule.exported]
+[rule.package-comments]
+[rule.var-naming]
+[rule.dot-imports]
+[rule.blank-imports]
+[rule.error-return]
+[rule.indent-error-flow]
+[rule.argument-limit]
+  arguments = 5
