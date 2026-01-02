@@ -1,15 +1,17 @@
-# ETAPA 1: Construcción (El taller)
+# ETAPA 1: Constructor (Builder)
 FROM golang:1.24-alpine AS builder
 WORKDIR /app
 COPY . .
 RUN go mod download
+# Compilamos el binario (go:embed incluirá api/static automáticamente)
 RUN CGO_ENABLED=0 GOOS=linux go build -o main api/main.go
 
-# ETAPA 2: Ejecución (El cohete ligero)
-FROM scratch
+# ETAPA 2: Ejecución (Runtime)
+FROM alpine:latest
 WORKDIR /root/
-# Solo copiamos el binario y los archivos visuales (Máxima seguridad y mínimo peso)
+
+# SOLO necesitamos el binario. 
 COPY --from=builder /app/main .
-COPY --from=builder /app/static ./static
+
 EXPOSE 8080
 CMD ["./main"]
